@@ -48,3 +48,14 @@ function renderCart() {
 
   totalDisplay.textContent = total.toFixed(2);
 }
+
+
+function removeFromCart(product) {
+  if (cart[product]) {
+    cart[product].quantity -= 1;
+    if (cart[product].quantity <= 0) {
+      delete cart[product];
+    }
+  }
+  renderCart();
+}
